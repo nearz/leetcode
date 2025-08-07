@@ -2,32 +2,10 @@ package main
 
 import (
 	"fmt"
-	"sort"
 )
 
+// TODO: Need to study and have better understanding of bitwise operations.
 func singleNumber(nums []int) int {
-	if len(nums) == 1 {
-		return nums[0]
-	}
-	// return xor(nums)
-	sort.Ints(nums)
-	l := len(nums)
-	var a int
-	for i := 0; i < l; {
-		if i == l-1 {
-			a = nums[i]
-			break
-		}
-		if nums[i] != nums[i+1] {
-			a = nums[i]
-			break
-		}
-		i += 2
-	}
-	return a
-}
-
-func xor(nums []int) int {
 	res := 0
 	for _, n := range nums {
 		res ^= n
@@ -45,6 +23,28 @@ func main() {
 	n3 := []int{1}
 	fmt.Printf("T3: %d\n", singleNumber(n3))
 }
+
+// NOTE: is not linear runtime complexity.
+// func singleNumber(nums []int) int {
+// 	if len(nums) == 1 {
+// 		return nums[0]
+// 	}
+// 	sort.Ints(nums)
+// 	l := len(nums)
+// 	var a int
+// 	for i := 0; i < l; {
+// 		if i == l-1 {
+// 			a = nums[i]
+// 			break
+// 		}
+// 		if nums[i] != nums[i+1] {
+// 			a = nums[i]
+// 			break
+// 		}
+// 		i += 2
+// 	}
+// 	return a
+// }
 
 // NOTE: Does not use constant memory
 // func singleNumber(nums []int) int {
