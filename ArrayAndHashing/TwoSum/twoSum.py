@@ -2,16 +2,27 @@ from typing import List
 
 
 class Solution:
+    # NOTE: a little cleaner
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         tracker = {}
-        final = []
         for i, n in enumerate(nums):
-            j = tracker.get(target - n, None)
-            if j != None:
-                final.extend([j, i])
-                break
+            diff = target - n
+            if diff in tracker:
+                return [tracker[diff], i]
             tracker[n] = i
-        return final
+        return []
+
+    # NOTE: time = O(n)
+    # def twoSum(self, nums: List[int], target: int) -> List[int]:
+    #     tracker = {}
+    #     final = []
+    #     for i, n in enumerate(nums):
+    #         j = tracker.get(target - n, None)
+    #         if j != None:
+    #             final.extend([j, i])
+    #             break
+    #         tracker[n] = i
+    #     return final
 
 
 if __name__ == "__main__":

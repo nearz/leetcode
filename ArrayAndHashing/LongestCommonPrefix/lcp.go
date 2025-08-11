@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-// TODO: Could be better.
+// TODO: Is this the best solution?
 
 func longestCommonPrefix(strs []string) string {
 	l := 0

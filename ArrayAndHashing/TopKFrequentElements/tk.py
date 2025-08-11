@@ -1,6 +1,6 @@
 from typing import List
 
-# TODO: Revist this after watching video.
+# TODO: Revist this after watching Neetcode video.
 
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
