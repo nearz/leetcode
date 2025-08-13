@@ -1,13 +1,19 @@
 from typing import List
 
+# TODO: Revisit sorting
+# TODO: How to improve to O(n)
+
 
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
+        if not nums:
+            return 0
+        nums.sort()
         return 0
 
     # NOTE: time = O(n + k), space = O(k)
     # def longestConsecutive(self, nums: List[int]) -> int:
-    #     if len(nums) == 0:
+    #     if not nums:
     #         return 0
     #
     #     maxMag = nums[0]

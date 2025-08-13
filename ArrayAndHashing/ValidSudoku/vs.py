@@ -1,10 +1,11 @@
 from typing import List
 
+# TODO: Not clear on time, always fixed input so time = O(1)?
+# TODO: May be cleaner ways to do this.
+
 
 class Solution:
     # NOTE: Brute force
-    # TODO: Not clear on time, always fixed input so time = O(1)?
-    # TODO: May be cleaner ways to do this.
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         for i in board:
             seen = set()
