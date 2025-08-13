@@ -20,8 +20,7 @@ class Solution:
                 res.append(ss)
                 i = i + n + 1
                 bck = i
-            else:
-                i += 1
+            i += 1
         return res
 
 

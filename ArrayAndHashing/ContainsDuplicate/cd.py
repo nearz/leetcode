@@ -39,3 +39,6 @@ if __name__ == "__main__":
 
     n2 = [1, 2, 3, 4]
     print(s.hasDuplicate(n2))
+
+    n3 = []
+    print(s.hasDuplicate(n3))
