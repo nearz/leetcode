@@ -1,5 +1,6 @@
 class Solution:
     # NOTE: Cleaner
+    # NOTE: Time = O(n), Space = O(n)
     def isValid(self, s: str) -> bool:
         stack = []
         parenMap = {")": "(", "]": "[", "}": "{"}
