@@ -1,21 +1,42 @@
 from typing import List
 
-# TODO: Better solution, time = O(n). See Neetcode.
+# TODO: By Division should me time/space goals, but see videos for Prefix & Suffix. I am not sure what they are.
 
 
 class Solution:
-    # NOTE: Brute Force, time = O(n^2)
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        res = []
-        for i in range(len(nums)):
-            p = 1
-            for j in range(len(nums)):
-                if i == j:
-                    continue
-                p *= nums[j]
-            res.append(p)
+        total = 1
+        zCnt = 0
+        zi = 0
+        for i, n in enumerate(nums):
+            if n == 0:
+                zCnt += 1
+                if zCnt == 1:
+                    zi = i
+                continue
+            total *= n
 
-        return res
+        if zCnt == 1:
+            res = [0] * len(nums)
+            res[zi] = total
+            return res
+        if zCnt > 1:
+            return [0] * len(nums)
+
+        return [total // n for n in nums]
+
+    # NOTE: Brute Force, time = O(n^2)
+    # def productExceptSelf(self, nums: List[int]) -> List[int]:
+    #     res = []
+    #     for i in range(len(nums)):
+    #         p = 1
+    #         for j in range(len(nums)):
+    #             if i == j:
+    #                 continue
+    #             p *= nums[j]
+    #         res.append(p)
+    #
+    #     return res
 
 
 if __name__ == "__main__":
@@ -29,6 +50,14 @@ if __name__ == "__main__":
     r = sol.productExceptSelf(n)
     print(f"T1: {r}")
 
+    n = [1, 0, 2, 4, 0, 6]
+    r = sol.productExceptSelf(n)
+    print(f"T1: {r}")
+
     n = [0, 0]
+    r = sol.productExceptSelf(n)
+    print(f"T1: {r}")
+
+    n = [1, 2]
     r = sol.productExceptSelf(n)
     print(f"T1: {r}")

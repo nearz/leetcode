@@ -1,15 +1,43 @@
 from typing import List
 
-# TODO: Revisit sorting
-# TODO: How to improve to O(n)
-
 
 class Solution:
+
+    # NOTE: Time = O(n), Space = O(n)
     def longestConsecutive(self, nums: List[int]) -> int:
-        if not nums:
-            return 0
-        nums.sort()
-        return 0
+        num_set = set(nums)
+        cnt = 0
+
+        for n in num_set:
+            if (n - 1) not in num_set:
+                length = 1
+                while (n + length) in num_set:
+                    length += 1
+                cnt = max(length, cnt)
+        return cnt
+
+    # NOTE: Time = O(n log n) assuming sort i O(nlogn), Space = O(1) or O(n) depends on sort.
+    # def longestConsecutive(self, nums: List[int]) -> int:
+    #     if not nums:
+    #         return 0
+    #     elif len(nums) == 1:
+    #         return 1
+    #
+    #     nums.sort()
+    #
+    #     cnt = 1
+    #     maxCnt = 1
+    #
+    #     for i in range(len(nums) - 1):
+    #         if nums[i] == nums[i + 1]:
+    #             continue
+    #         elif nums[i] + 1 == nums[i + 1]:
+    #             cnt += 1
+    #             maxCnt = max(maxCnt, cnt)
+    #         else:
+    #             cnt = 1
+    #
+    #     return maxCnt
 
     # NOTE: time = O(n + k), space = O(k)
     # def longestConsecutive(self, nums: List[int]) -> int:
