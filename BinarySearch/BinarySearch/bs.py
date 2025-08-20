@@ -1,5 +1,7 @@
 from typing import List
 
+# TODO: Need to review binary search to understand better
+
 
 class Solution:
     # NOTE: Recursion
@@ -65,6 +67,11 @@ if __name__ == "__main__":
 
     n = [-1, 0, 2, 4, 6, 8]
     t = 3
+    r = sol.search(n, t)
+    print(f"T1: {r}")
+
+    n = [-1, 0, 2, 4, 6, 8]
+    t = -2
     r = sol.search(n, t)
     print(f"T1: {r}")
 
