@@ -1,6 +1,6 @@
 from typing import List
 
-# TODO: By Division should me time/space goals, but see videos for Prefix & Suffix. I am not sure what they are.
+# TODO: By Division should meet time/space goals, but see videos for Prefix & Suffix. I am not sure what they are.
 
 
 class Solution:
