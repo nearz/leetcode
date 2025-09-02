@@ -1,25 +1,40 @@
+# TODO: How to implement this in O(n)
+
+
 class Solution:
-    # NOTE: Time = O(n^3), Space = O(n)
     def lengthOfLongestSubstring(self, s: str) -> int:
         track_max = 0
-        for k in range(len(s)):
-            i = 0
-            j = 1 + k
-            while i < len(s) and j <= len(s):
-                if not self.duplicates(s[i:j]):
-                    track_max = max(track_max, j - i)
-                i += 1
-                j += 1
-
+        for i in range(len(s)):
+            char_set = set()
+            for j in range(i, len(s)):
+                if s[j] in char_set:
+                    break
+                char_set.add(s[j])
+                track_max = max(track_max, len(char_set))
         return track_max
 
-    def duplicates(self, sub: str) -> bool:
-        seen = set()
-        for s in sub:
-            if s in seen:
-                return True
-            seen.add(s)
-        return False
+    # NOTE: Time = O(n^3), Space = O(n)
+    # NOTE: Way over thought this, try to think simple sometimes
+    # def lengthOfLongestSubstring(self, s: str) -> int:
+    #     track_max = 0
+    #     for k in range(len(s)):
+    #         i = 0
+    #         j = 1 + k
+    #         while i < len(s) and j <= len(s):
+    #             if not self.duplicates(s[i:j]):
+    #                 track_max = max(track_max, j - i)
+    #             i += 1
+    #             j += 1
+    #
+    #     return track_max
+    #
+    # def duplicates(self, sub: str) -> bool:
+    #     seen = set()
+    #     for s in sub:
+    #         if s in seen:
+    #             return True
+    #         seen.add(s)
+    #     return False
 
 
 if __name__ == "__main__":
