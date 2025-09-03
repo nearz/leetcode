@@ -1,7 +1,5 @@
 from typing import Optional
 
-# TODO: Note sure I like the nonlocal. Can I pass a collection var?
-
 
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -11,11 +9,19 @@ class TreeNode:
 
 
 class Solution:
+    # NOTE: Not sure which way I prefer
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
-        pass
+        diam = [0]
+        self._dfs(root, diam)
+        return diam[0]
 
-    def _dfs(self, root: Optional[TreeNode], diam int) -> int:
-        pass
+    def _dfs(self, root: Optional[TreeNode], diam: list) -> int:
+        if not root:
+            return 0
+        lh = self._dfs(root.left, diam)
+        rh = self._dfs(root.right, diam)
+        diam[0] = max(diam[0], lh + rh)
+        return 1 + max(lh, rh)
 
     # def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
     #     res = 0
